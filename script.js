@@ -1,6 +1,17 @@
-var swordScore=0;
-var spellScore=0;
-var questionCount=0;
+var thesunScore=0;
+var venusScore=0;
+var earthScore=0;
+var marsScore=0;
+var jupiterScore=0;
+var saturnScore=0;
+var uranusScore=0;
+var neptuneScore=0;
+var murcuryScore=0;
+var plutoScore=0;
+var ceresScore=0;
+var HaumeaScore=0;
+var makemakeScore=0;
+var erisScore=0;
 
 
 
