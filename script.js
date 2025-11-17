@@ -278,16 +278,16 @@ function calculateResult() {
   return resultPlanet;
 }
 
-if (window.location.pathname.includes('results.html')) {
-  window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
+  if (window.location.pathname.includes('results.html') || window.location.pathname === '/results.html') {
     var resultElement = document.getElementById('result');
     if (resultElement) {
       var result = calculateResult();
       resultElement.innerHTML = "You are " + result + "!";
       console.log("Quiz result: " + result);
     }
-  });
-}
+  }
+});
 
 if (button) {
   button.addEventListener('click', function() {

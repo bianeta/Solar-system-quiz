@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" content="ie=edge">
 
     <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" defer></script>
 </head>
 <style>
     body {
@@ -34,10 +33,66 @@
         <h2 id="result">Calculating your result...</h2>
         
         <div class="button-container">
-            <a href="index.html" class="button">
+            <a href="index.html">
                 <button id="restart">Take Quiz Again</button>
             </a>
         </div>
     </main>
+
+<script>
+function calculateResult() {
+  var thesunScore = parseInt(localStorage.getItem('thesunScore')) || 0;
+  var venusScore = parseInt(localStorage.getItem('venusScore')) || 0;
+  var earthScore = parseInt(localStorage.getItem('earthScore')) || 0;
+  var marsScore = parseInt(localStorage.getItem('marsScore')) || 0;
+  var jupiterScore = parseInt(localStorage.getItem('jupiterScore')) || 0;
+  var saturnScore = parseInt(localStorage.getItem('saturnScore')) || 0;
+  var uranusScore = parseInt(localStorage.getItem('uranusScore')) || 0;
+  var neptuneScore = parseInt(localStorage.getItem('neptuneScore')) || 0;
+  var murcuryScore = parseInt(localStorage.getItem('murcuryScore')) || 0;
+  var dwarfScore = parseInt(localStorage.getItem('dwarfScore')) || 0;
+  
+  var scores = {
+    'the Sun': thesunScore,
+    'Venus': venusScore,
+    'Earth': earthScore,
+    'Mars': marsScore,
+    'Jupiter': jupiterScore,
+    'Saturn': saturnScore,
+    'Uranus': uranusScore,
+    'Neptune': neptuneScore,
+    'Mercury': murcuryScore,
+    'a Dwarf Planet': dwarfScore
+  };
+  
+  var maxScore = 0;
+  var resultPlanet = 'a mystery celestial body';
+  
+  for (var planet in scores) {
+    if (scores[planet] > maxScore) {
+      maxScore = scores[planet];
+      resultPlanet = planet;
+    }
+  }
+  
+  return resultPlanet;
+}
+
+var resultElement = document.getElementById('result');
+if (resultElement) {
+  var result = calculateResult();
+  resultElement.innerHTML = "You are " + result + "!";
+  console.log("Quiz result: " + result);
+}
+
+var restartButton = document.getElementById('restart');
+if (restartButton) {
+  restartButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.clear();
+    window.location.href = 'index.html';
+  });
+}
+</script>
 </body>
 </html>
